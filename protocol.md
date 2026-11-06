@@ -1,0 +1,71 @@
+ascii
+
+C                        S
+1: Upload file           
+2: Download file         67: Download file
+3: List all files        68: List all files
+4: File info             69: File info
+
+
+Upload file:
+
+C    ------------->    S
+M-Byte (1) (1-byte)
+HMAC (32-bytes)
+Nonce (32-bytes)
+F-Namn storlek f (1-byte)
+Data storlek d (4-bytes)
+F-Namn (f-bytes)
+Data (d-bytes)
+
+C    ------------->    S
+
+Download file:
+
+C    ------------->    S
+M-Byte (2) (1-byte)
+F-Namn storlek f (1-byte)
+F-Namn (f-bytes)
+
+S    ------------->    C
+M-Byte (67) (1-byte)
+h antal HMACs (1-byte)
+HMACs (32-byte)
+Data storlek d (4-bytes)
+Data (d-bytes)
+
+List all files:
+C    ------------->    S
+M-Byte (3) (1-byte)
+
+S    ------------->    C
+M-Byte (68) (1-byte)
+Fil-lista storlek i bytes f (4-byte)
+Fillista
+
+File info:
+C    ------------->    S
+Filnman storlek f (1-byte)
+Filnamn (f-bytes)
+Tid skapad (unix) (8 bytes)
+Senast ändrad (unix) (8 bytes)
+HMAC (32 bytes)
+Nonse (32 bytes)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
