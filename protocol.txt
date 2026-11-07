@@ -30,8 +30,8 @@ F-Namn (f-bytes)
 S    ------------->    C
 M-Byte (67) (1-byte)
 h antal HMACs (1-byte)
-HMACs (32-byte)
 Data storlek d (4-bytes)
+HMAC list (32-byte * h)
 Data (d-bytes)
 
 List all files:
