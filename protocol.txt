@@ -1,10 +1,10 @@
 ascii
 
 C                        S
-1: Upload file           
-2: Download file         67: Download file
-3: List all files        68: List all files
-4: File info             69: File info
+1: Upload file           67: Upload file
+2: Download file         68: Download file
+3: List all files        69: List all files
+4: File info             70: File info
 
 
 Upload file:
