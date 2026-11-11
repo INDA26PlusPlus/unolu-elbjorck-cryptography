@@ -51,10 +51,11 @@ def sendResponse(sc: ServerConnection, response: Response) =
             message.write(fileInfo.nonce)
         }
         case _: Response => throw Exception("Knas") 
-    println("SEND: " + message.toByteArray())
     sc.ostream.write(message.toByteArray())
 
 def readRequest(sc: ServerConnection): Request =    
+    while(sc.istream.available() < 1)
+        Thread.sleep(100)
     sc.istream.read() match
         case 1 => { // Upload
             val signature: Array[Byte] = sc.istream.readNBytes(32)
@@ -79,7 +80,7 @@ def readRequest(sc: ServerConnection): Request =
             val fname: String = String(sc.istream.readNBytes(fnameSize))
             ReqFileInfo(fname)
         }
-        case _ => throw Exception("Ännu mer knas")
+        case _ => throw Exception("Ännu mer knas (" + 1 + ")")
     
 
     
