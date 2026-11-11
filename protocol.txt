@@ -18,7 +18,11 @@ Data storlek d (4-bytes)
 F-Namn (f-bytes)
 Data (d-bytes)
 
-C    ------------->    S
+S    ------------->    C
+M-Byte (67) (1-byte)
+h antal hasher (1-byte)
+Hasher (h*32-bytes)
+
 
 Download file:
 
@@ -29,9 +33,9 @@ F-Namn (f-bytes)
 
 S    ------------->    C
 M-Byte (67) (1-byte)
-h antal HMACs (1-byte)
-HMACs (32-byte)
+h antal hasher (1-byte)
 Data storlek d (4-bytes)
+hasher (h*32-bytes)
 Data (d-bytes)
 
 List all files:
@@ -44,7 +48,7 @@ Fil-lista storlek i bytes f (4-byte)
 Fillista
 
 File info:
-C    ------------->    S
+S    ------------->    S
 Filnman storlek f (1-byte)
 Filnamn (f-bytes)
 Tid skapad (unix) (8 bytes)
