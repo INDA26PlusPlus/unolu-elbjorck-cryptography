@@ -21,6 +21,7 @@ jobs:
 
      - name: Assemble fat jar 
        run: |
+        tree
         cd server
         sbt assembly 
 
