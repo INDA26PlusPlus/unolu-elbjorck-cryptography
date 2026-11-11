@@ -1,5 +1,10 @@
 name: Manual Deployment
-on: workflow_dispatch
+on: 
+  workflow_dispatch:
+    environment:
+        description: 'SKibidi'
+        type: environment
+        required: true
 
 jobs:
   create-release:
