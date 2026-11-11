@@ -10,9 +10,6 @@ jobs:
        with:
         ref: 'server'
       
-     - name: CD to server
-       run: cd server
-      
      - name: Setup JDK
        uses: actions/setup-java@v4
        with:
@@ -23,10 +20,12 @@ jobs:
        uses: sbt/setup-sbt@v1
 
      - name: Assemble fat jar 
-       run: sbt assembly 
+       run: |
+        cd server
+        sbt assembly 
 
      - name: Release
        uses: softprops/action-gh-release@v3
        with:
         body: "Create fat jar for java to run"
-        files: out/jvm/scala-3.10.0/server/server-assembly-0.1.0-SNAPSHOT.jar 
+        files: server/out/jvm/scala-3.10.0/server/server-assembly-0.1.0-SNAPSHOT.jar 
