@@ -4,7 +4,6 @@ on: workflow_dispatch
 jobs:
   create-release:
     runs-on: ubuntu-latest
-    if: contains( github.event.head_commit.message, 'release' )
     steps:
      - name: Checkout Code
        uses: actions/checkout@v4
