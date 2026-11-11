@@ -27,4 +27,4 @@ jobs:
      - uses: actions/upload-artifact@v4
        with:
          name: server${{ github.run_attempt }}.jar
-         path: server/out/jvm/scala-3.10.0/server/server-assembly-0.1.0-SNAPSHOT.jar 
+         path: /home/runner/work/unolu-elbjorck-cryptography/unolu-elbjorck-cryptography/server/target/out/jvm/scala-3.10.0/server/server-assembly-0.1.0-SNAPSHOT.jar 
