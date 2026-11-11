@@ -8,7 +8,7 @@ jobs:
      - name: Checkout Code
        uses: actions/checkout@v4
        with:
-        ref: 'server'
+        ref: 'master'
       
      - name: Setup JDK
        uses: actions/setup-java@v4
@@ -21,7 +21,6 @@ jobs:
 
      - name: Assemble fat jar 
        run: |
-        tree
         cd server
         sbt assembly 
      - uses: actions/upload-artifact@v4
