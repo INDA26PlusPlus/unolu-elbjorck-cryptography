@@ -5,7 +5,8 @@ jobs:
     steps:
      - name: Checkout Code
        uses: actions/checkout@v4
-       ref: 'server'
+       with:
+        ref: 'server'
       
      - name: CD to server
        run: cd server
