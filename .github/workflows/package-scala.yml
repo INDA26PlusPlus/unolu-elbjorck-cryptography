@@ -1,0 +1,29 @@
+name: Package scala to fat jar 
+on: workflow_dispatch
+
+jobs:
+  create-release:
+    runs-on: ubuntu-latest
+    steps:
+     - name: Checkout Code
+       uses: actions/checkout@v4
+       with:
+        ref: 'master'
+      
+     - name: Setup JDK
+       uses: actions/setup-java@v4
+       with:
+         distribution: temurin
+         java-version: 23 
+
+     - name: Setup sbt launcher
+       uses: sbt/setup-sbt@v1
+
+     - name: Assemble fat jar 
+       run: |
+        cd server
+        sbt assembly 
+     - uses: actions/upload-artifact@v4
+       with:
+         name: server${{ github.run_attempt }}.jar
+         path: /home/runner/work/unolu-elbjorck-cryptography/unolu-elbjorck-cryptography/server/target/out/jvm/scala-3.10.0/server/server-assembly-0.1.0-SNAPSHOT.jar 
